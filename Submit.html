@@ -19,10 +19,10 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
-    // allow users to select images from their desktop
     var submitId = db.ref().push().key;
     var file;
     var imgUrl;
+
     // store data to the firebase
     function writeData(){
         // save text data
@@ -30,7 +30,8 @@
         var country=document.getElementById('country').value;
         var content=document.getElementById('content').value;
         var time = new Date().getTime();
-
+        
+        // save image
         firebase.storage().ref("Pictures/" + submitId).getDownloadURL().then(imgUrl => {
             console.log(imgUrl);
             imgUrl=imgUrl;
@@ -44,20 +45,6 @@
         });
 
         
-        
-        
-        // function(){
-        //     uploadTask.snapshot.ref.getDownloadURL().then(function(url){
-        //         ImgUrl = url;
-
-        //     firebase.database().ref(submitId).set({
-        //         Name: ImgName,
-        //         ImgLink: ImgUrl,
-        //         country: country,
-        //         content: content,
-        //     });
-        // });
-        // };
         alert("successfully uploaded")
     }
     </script>
@@ -70,9 +57,10 @@
     <input id="content" type="textarea"><br>
     <input id="select" type="file"></input><br>
     <progress min="0" max="100" value="0" id="imgpro"></progress><br>
-    <button onclick="writeData()">Submit</button><br>
+    <button onclick="writeData()" id="submit">Submit</button><br>
 
     <script>
+    document.getElementById("submit").disabled = true;
     const inputElement = document.getElementById("select");
     inputElement.addEventListener("change", handleFiles, false);
     function handleFiles() {
@@ -86,27 +74,10 @@
             function(){
                 uploadTask.snapshot.ref.getDownloadURL().then(function(url){
                     console.log(url);
-                    //imgUrl = url;
+                    document.getElementById("submit").disabled = false;
             });
         })
 
     }
     </script>
-
-    <!-- <script>
-    document.getElementById("select").onclick = function(e){
-        var input = document.createElement('input');
-        input.type = 'file';
-
-        input.onchange = e => {
-            files = e.target.files;
-            reder = new FileReader();
-            reader.onload = function(){
-                document.getElementById('myimg').src = reader.result;
-            }
-            reader.readAsDataURL(files[0]);
-        }
-        input.click();
-    }
-    </script> -->
 </html>
