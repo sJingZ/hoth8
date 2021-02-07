@@ -106,6 +106,7 @@
 <audio data-key="78" src="sounds/zig-zag.mp3"></audio>
 <audio data-key="77" src="sounds/zig-zag.mp3"></audio>
 <audio data-key="8" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="32" src="sounds/zig-zag.mp3"></audio>
 
 
 <script>
@@ -127,7 +128,7 @@
         
         let len=document.getElementById("text").innerHTML.length;
         document.getElementById("text").innerHTML=document.getElementById("text").innerHTML.substring(0,len-1);
-        //document.getElementById("text").innerHTML=document.getElementById("text").innerHTML[]
+        
     }
     else{
     document.getElementById("text").innerHTML=document.getElementById("text").innerHTML+e.target.innerText;}
@@ -138,13 +139,21 @@
   function handleInput(e) {
     var key = e.target.getAttribute('data-key');
     // console.log(key);
-    if (key != 13){
-      inputString = inputString+(e.target.innerText)
-    } else if (key == 13) {
-      console.log(inputString);
-      uploadComment();
+    if (key===8)
+    {
+        inputString = inputString;
     }
-  };
+    else if(key===13)
+    {
+        console.log(inputString);
+        uploadComment();
+    }
+    else
+    {
+      inputString = inputString+(e.target.innerText);
+    }
+    
+  }
 
   function uploadComment(){
     var newComment = db.ref("Comments/"+submitId).push();
