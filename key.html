@@ -105,6 +105,7 @@
 <audio data-key="66" src="sounds/zig-zag.mp3"></audio>
 <audio data-key="78" src="sounds/zig-zag.mp3"></audio>
 <audio data-key="77" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="8" src="sounds/zig-zag.mp3"></audio>
 
 
 <script>
@@ -123,9 +124,9 @@
     }
     else if(e.target.innerText==="del")
     {
-        let text=document.getElementById("text").innerHTML;
-        let len=text.length;
-        document.getElementById("text").innerHTML=text.substring(0,len);
+        
+        let len=document.getElementById("text").innerHTML.length;
+        document.getElementById("text").innerHTML=document.getElementById("text").innerHTML.substring(0,len-1);
         //document.getElementById("text").innerHTML=document.getElementById("text").innerHTML[]
     }
     else{
