@@ -170,6 +170,24 @@
     
   }
 
+
+  const db=firebase.database();
+  let ref =db.ref('Comments');
+
+  ref.on('value',gotData,errData);
+  function gotData(data)
+  {
+    let photoID = data.val();
+    //console.log(photoID);
+    //console.log(Object.values(photoID));
+    let listOfObjects=Object.values(photoID);
+    let o=listOfObjects[listOfObjects.length-1];
+    let l=Object.values(o);
+    console.log(l[l.length-1].content);
+      
+  }
+    
+/*
  const db=firebase.database();
   let ref =db.ref('Comments');
 
@@ -191,7 +209,7 @@
 
     }   
       
-  }
+  }*/
 function errData(data)
 {
   console.log('Error!');
