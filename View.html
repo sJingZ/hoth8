@@ -28,8 +28,9 @@
     db.ref('/UserUploads').once('value').then(snapshot => {
         var random=Math.floor((Math.random() * snapshot.numChildren()))
         if (random == 0){
-            random = 1;
+            random = snapshot.numChildren();
         }
+        console.log(random)
 
         db.ref('/UserUploads/').orderByKey().limitToFirst(random).once('value', (snapshot) => {
             console.log(snapshot.val());
