@@ -10,7 +10,7 @@
 	<body>
 <div class="split left">
 	<div></div>
-  <div id="text" class="centered0">hello</div>
+  <div id="text" class="centered0">hello</div><div>hello</div><div>hello</div>
 	<div class="keyboard">
 	<div class="centered1">
     <div class="keyboardRow">
@@ -80,11 +80,24 @@
 
 
 <script>
-  document.addEventListener('click', function(e) {
+  //let text=document.getElementById("text").innerHTML;
+  document.addEventListener('click', displayText,false);
+  //document.addEventListener('keydown', displayText，false);
+  function displayText(e)
+  {
     console.log(e.target.innerText)
-    document.getElementById("text").innerHTML=document.getElementById("text").innerHTML+e.target.innerText;
-  },false);
-  
+    if (e.target.innerText==="Space")
+    {
+      document.getElementById("text").innerHTML=document.getElementById("text").innerHTML+" ";
+    }
+    else if(e.target.innerText==="Enter")
+    {
+
+    }
+    else{
+    document.getElementById("text").innerHTML=document.getElementById("text").innerHTML+e.target.innerText;}
+  }
+
   function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
     e.target.classList.remove('playing');
@@ -105,6 +118,7 @@
   const keys = Array.from(document.querySelectorAll('.keyboardRow'));
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   window.addEventListener('keydown', playSound);
+
 </script>
 
 // content on the right side of the screen
