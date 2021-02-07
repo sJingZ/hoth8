@@ -91,11 +91,20 @@
 <audio data-key="80" src="sounds/ufo.mp3"></audio>
 <audio data-key="65" src="sounds/glimmer.mp3"></audio>
 <audio data-key="83" src="sounds/veil.mp3"></audio>
-<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
-<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
-<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
-<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
-<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="68" src="sounds/veil.mp3"></audio>
+<audio data-key="70" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="71" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="72" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="74" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="75" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="76" src="sounds/veil.mp3"></audio>
+<audio data-key="90" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="88" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="67" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="86" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="66" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="78" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="77" src="sounds/zig-zag.mp3"></audio>
 
 
 <script>
@@ -103,7 +112,7 @@
   //document.addEventListener('keydown', displayText，false);
   function displayText(e)
   {
-    console.log(e.target.innerText)
+    // console.log(e.target.innerText)
     if (e.target.innerText==="Space")
     {
       document.getElementById("text").innerHTML=document.getElementById("text").innerHTML+" ";
@@ -127,7 +136,7 @@
   var submitId;
   function handleInput(e) {
     var key = e.target.getAttribute('data-key');
-    console.log(key);
+    // console.log(key);
     if (key != 13){
       inputString = inputString+(e.target.innerText)
     } else if (key == 13) {
@@ -155,6 +164,7 @@
     {
       var key = e.target.getAttribute('data-key');
       const audio = document.querySelector(`audio[data-key="${key}"]`);
+      console.log(key);
       if (key != 13){
         audio.play();
       }
