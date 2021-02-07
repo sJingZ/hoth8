@@ -1,24 +1,24 @@
 .keyboardRow
 {
-	 display: grid;
-  grid-template-columns: repeat(20, 15px);
-	text-align:center;
+   display: grid;
+  grid-template-columns: repeat(10, 37px);
+  text-align:center;
 }
 
 .key 
 { 
 background: #D4E6F1;
 display:inline-block;
-border:0.5px solid black; 
+border:1px solid black; 
 padding:4px;
 margin-bottom: 1px; 
 margin-left: 0.01px; 
 margin-right: 0.1px; 
 
-height: 5px;
-width: 5px;
+height: 26px;
+width: 26px;
 border-radius: 2px;
-font-size: 4px;
+font-size: 13px;
 text-align:center;
 }
 .key:hover {
@@ -33,63 +33,63 @@ text-align:center;
 
 .space
 {
-	background: #D4E6F1;
+  background: #D4E6F1;
 display:inline-block;
-border:0.5px solid black; 
+border:1px solid black; 
 padding:4px;
 margin-bottom: 1px; 
 margin-left: 0.01px; 
 margin-right: 0.1px; 
 
-height: 5px;
-width: 80px;
+height: 26px;
+width: 200px;
 border-radius: 2px;
-font-size: 4px;
+font-size: 13px;
 text-align:center;
 }
 .square 
 {
-	width: 3%
-	display:inline-block;
-	background: #D4E6F1;
-	border-radius: 15%;
-	border: 1px solid rgba(0, 0, 0, 0.8);
+  width: 3%
+  display:inline-block;
+  background: #D4E6F1;
+  border-radius: 15%;
+  border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 5px;
   
 }
 
 .centered1 {
   position: absolute;
-  top: 75%;
-  left: 25%;
+  top: 78%;
+  left: 14%;
   transform: translate(-30%, -50%);
   text-align: center;
 }
 .centered2 {
   position: absolute;
-  top: 80%;
-  left: 27%;
+  top: 83%;
+  left: 16%;
   transform: translate(-30%, -50%);
   text-align: center;
 }
 .centered3 {
   position: absolute;
-  top: 85%;
-  left: 30%;
+  top: 88%;
+  left: 20%;
   transform: translate(-30%, -50%);
   text-align: center;
 }
 .centered4 {
   position: absolute;
-  top: 90%;
-  left: 47%;
+  top: 93%;
+  left: 30%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
 .centered5 {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 40%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
