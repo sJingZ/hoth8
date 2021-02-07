@@ -74,6 +74,8 @@
             function(){
                 uploadTask.snapshot.ref.getDownloadURL().then(function(url){
                     console.log(url);
+                    document.getElementById("submit").disabled = false;
+
                     
             });
         })
