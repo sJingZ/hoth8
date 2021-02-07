@@ -98,9 +98,7 @@
 
 
 <script>
-<<<<<<< HEAD
   //let text=document.getElementById("text").innerHTML;
-  document.addEventListener('click', displayText,false);
   //document.addEventListener('keydown', displayText，false);
   function displayText(e)
   {
@@ -117,11 +115,11 @@
     document.getElementById("text").innerHTML=document.getElementById("text").innerHTML+e.target.innerText;}
   }
 
-=======
   var inputString = "";
   var submitId;
   function handleInput(e) {
     var key = e.target.getAttribute('data-key');
+    console.log(key);
     if (key != 13){
       inputString = inputString+(e.target.innerText)
     } else if (key == 13) {
@@ -135,36 +133,51 @@
     newComment.set({
       content: inputString
     })
+    inputString = "";
   }
 
 
+  // handle click on keyboard
   document.addEventListener('click', function(e) {
-    var key = e.target.getAttribute('data-key');
-    // console.log(key)
-    handleInput(e);
-    const audio = document.querySelector(`audio[data-key="${key}"]`);
-    if (key != 13){
-      audio.play();
-    }
+    // let ch = e.target.innerText;
+    //  && ch.length === 1 && ch.match(/[a-z]/i)
+    if (e.target.classList == "key" || 
+        e.target.classList == "enter" ||
+        e.target.classList == "space")
+    {
+      var key = e.target.getAttribute('data-key');
+      const audio = document.querySelector(`audio[data-key="${key}"]`);
+      if (key != 13){
+        audio.play();
+      }
+      displayText(e);
+      handleInput(e); 
+    };
   },false);
   
->>>>>>> 1ef6dd370e7974fa37605d08c2437072e185619c
   function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
     e.target.classList.remove('playing');
   }
 
   function playSound(e) {
-    console.log(e.keyCode)
-    handleInput(e);
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if (!audio) return;
+    if (e.target.classList == "key" || 
+        e.target.classList == "enter" ||
+        e.target.classList == "space")
+    {
+      const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+      if (key != 13){
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        if (!audio) return;
+        audio.play();
+      }
+      displayText(e);
+      handleInput(e);
 
-    // this line is not working... try solve this later
-    // key.classList.add('playing');
-    audio.currentTime = 0;
-    audio.play();
+      // this line is not working... try solve this later
+      // key.classList.add('playing');
+      audio.currentTime = 0;
+    }
   }
 
   const keys = Array.from(document.querySelectorAll('.keyboardRow'));
