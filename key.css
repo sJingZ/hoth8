@@ -1,0 +1,125 @@
+.keyboardRow
+{
+	 display: grid;
+  grid-template-columns: repeat(20, 15px);
+	text-align:center;
+}
+
+.key 
+{ 
+background: #D4E6F1;
+display:inline-block;
+border:0.5px solid black; 
+padding:4px;
+margin-bottom: 1px; 
+margin-left: 0.01px; 
+margin-right: 0.1px; 
+
+height: 5px;
+width: 5px;
+border-radius: 2px;
+font-size: 4px;
+text-align:center;
+}
+.key:hover {
+  border: 1px solid #eeeeee;
+  
+}
+
+.space:hover {
+  border: 1px solid #eeeeee;
+  
+}
+
+.space
+{
+	background: #D4E6F1;
+display:inline-block;
+border:0.5px solid black; 
+padding:4px;
+margin-bottom: 1px; 
+margin-left: 0.01px; 
+margin-right: 0.1px; 
+
+height: 5px;
+width: 80px;
+border-radius: 2px;
+font-size: 4px;
+text-align:center;
+}
+.square 
+{
+	width: 3%
+	display:inline-block;
+	background: #D4E6F1;
+	border-radius: 15%;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  
+}
+
+.centered1 {
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  transform: translate(-30%, -50%);
+  text-align: center;
+}
+.centered2 {
+  position: absolute;
+  top: 80%;
+  left: 27%;
+  transform: translate(-30%, -50%);
+  text-align: center;
+}
+.centered3 {
+  position: absolute;
+  top: 85%;
+  left: 30%;
+  transform: translate(-30%, -50%);
+  text-align: center;
+}
+.centered4 {
+  position: absolute;
+  top: 90%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.centered5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.split {
+  height: 100%;
+  width: 70%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: white;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #BFC9CA;
+}
+
+
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
