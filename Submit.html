@@ -63,7 +63,7 @@
     document.getElementById("submit").disabled = true;
     const inputElement = document.getElementById("select");
     inputElement.addEventListener("change", handleFiles, false);
-    function handleFiles() {
+    function handleFiles() {    
         var fileList = this.files;
         var storageRef = firebase.storage().ref('Pictures/'+submitId); 
         var uploadTask = storageRef.put(fileList[0]); 
