@@ -55,12 +55,12 @@
     </script>
 
 <body>
-<div class="container">
+
 
 
 <form class="w3-panel w3-card-4" action="/action_page.php">
   <div class="w3-container w3-padding-24">
-<h1 class="w3-xxlarge w3-monospace w3-hover-opacity"><b>SUBMIT YOUR PAGE</b></h1>
+<h1 class="w3-xxlarge w3-hover-opacity"><b>SUBMIT YOUR PAGE</b></h1>
 <hr style="left: 40% width:50px;border:1px solid red" class="w3-round">
 </div>
 
@@ -69,17 +69,21 @@
   <p><textarea id="content" class="w3-input" placeholder="Write something about the image..."></textarea></p>
   <input id="select" type="file"><br>
   <progress min="0" max="100" value="0" id="imgpro"></progress><br>
-  <button onclick="writeData()" id="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Submit</button><br>
+  <button onclick="writeData()" id="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Submit</button>
+  <button onclick="viewphoto()"  class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">View Other Photos</button><br>
 
   <h2></h2>
 </form>
 
 
 
-</div>
-
 
     <script>
+        function viewphoto()
+        {
+            window.location.assign('View.html');
+        }
+
     document.getElementById("submit").disabled = true;
     const inputElement = document.getElementById("select");
     inputElement.addEventListener("change", handleFiles, false);
