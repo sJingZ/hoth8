@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script> 
+    <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyDz6sUGDRW4biz9XmA3n-pblmAr0m4pevA",
+    authDomain: "mywebapp-c28e1.firebaseapp.com",
+    databaseURL: "https://mywebapp-c28e1-default-rtdb.firebaseio.com",
+    projectId: "mywebapp-c28e1",
+    storageBucket: "mywebapp-c28e1.appspot.com",
+    messagingSenderId: "285391498914",
+    appId: "1:285391498914:web:5063d701128521ac1171fb",
+    measurementId: "G-WRGSDBF73H"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    var submitId = db.ref().push().key;
+    var file;
+    var imgUrl;
+
+    // store data to the firebase
+    function writeData(){
+        // save text data
+        var ImgName=document.getElementById("name").value
+        var country=document.getElementById('country').value;
+        var content=document.getElementById('content').value;
+        var time = new Date().getTime();
+        
+        // save image
+        firebase.storage().ref("Pictures/" + submitId).getDownloadURL().then(imgUrl => {
+            console.log(imgUrl);
+            imgUrl=imgUrl;
+            db.ref("UserUploads/"+submitId).set({
+                CreatedAt: time,
+                Name: ImgName,
+                Link: imgUrl,
+                Country: country,
+                Content: content,
+            });
+        });
+
+        
+        alert("successfully uploaded")
+    }
+    </script>
+
+<body class="submit">
+
+<div class="w3-container w3-padding-24 w3-white">
+<h1 class="w3-xxlarge w3-monospace w3-hover-opacity"><b>SUBMIT YOUR PAGE</b></h1>
+<hr style="width:50px;border:5px solid red" class="w3-round">
+</div>
+
+<div class="w3-section">
+  <label>Image name</label>
+  <input class="w3-input w3-border w3-monospace w3-hover-border-black" style="width:300px" type="text" name="name" required>
+</div>
+
+<div class="w3-section">
+  <label>Which country is this photo taken?</label>
+  <input class="w3-input w3-border w3-monospace w3-hover-border-black" type="text" name="country" style="width:300px" required>
+</div>
+
+<div class="w3-section">
+  <label>Write something about the image...</label>
+  <input class="w3-input w3-border w3-monospace w3-hover-border-black" type="text" name="content" style="width:600px" required>
+</div> 
+
+<input id="select" type="file"></input><br>
+<progress min="0" max="100" value="0" id="imgpro"></progress><br>
+<button onclick="writeData()" id="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Submit</button><br>
+
+    <script>
+    document.getElementById("submit").disabled = true;
+    const inputElement = document.getElementById("select");
+    inputElement.addEventListener("change", handleFiles, false);
+    function handleFiles() {
+        var fileList = this.files;
+        var storageRef = firebase.storage().ref('Pictures/'+submitId); 
+        var uploadTask = storageRef.put(fileList[0]); 
+
+        uploadTask.on('state_changed', function(snapshot){
+            var progress = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+            document.getElementById("imgpro").value=progress;},function(error){},
+            function(){
+                uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+                    console.log(url);
+                    
+            });
+        })
+
+    }
+    </script>
+</body>
+</html>
