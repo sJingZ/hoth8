@@ -66,13 +66,14 @@
         <span data-key="66"class="key">B</span>
         <span data-key="78"class="key">N</span>
         <span data-key="77"class="key">M</span>
+        <span data-key="8"class="key">del</span>
     </div>
 		</div>
 		<div class="centered4">
-    <div class="keyboardRow">
+    
 			<span data-key="32"class="space">Space</span>
       <span data-key="13"class="enter" data-key="13">Enter</span>
-		</div>
+		
 		</div>
 </div>
 		
@@ -110,6 +111,13 @@
     else if(e.target.innerText==="Enter")
     {
 
+    }
+    else if(e.target.innerText==="del")
+    {
+        let text=document.getElementById("text").innerHTML;
+        let len=text.length;
+        document.getElementById("text").innerHTML=text.substring(0,len);
+        //document.getElementById("text").innerHTML=document.getElementById("text").innerHTML[]
     }
     else{
     document.getElementById("text").innerHTML=document.getElementById("text").innerHTML+e.target.innerText;}
