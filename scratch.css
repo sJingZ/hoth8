@@ -1,0 +1,55 @@
+.leftside,
+.rightside {
+  height: 100vh;
+  width: 100%;
+}
+
+.leftside {
+  background-color: aquamarine;
+}
+
+.rightside {
+  background-color: blueviolet;
+}
+
+.histC {
+  height: 50vh;
+  width: 100%;
+  background-color: brown;
+}
+
+.userI {
+  height: 20vh;
+  width: 100%;
+  background-color: burlywood;
+}
+
+.keyB {
+  height: 30vh;
+  width: 100%;
+  background-color: chartreuse;
+}
+
+.randI {
+  height: 80vh;
+  width: 100%;
+  background-color: darkblue;
+}
+
+.imgC {
+  height: 20vh;
+  width: 100%;
+  background-color: darkgreen;
+}
+
+.im {
+  height: 80vh;
+  width: 100%;
+  object-fit: contain;
+}
+
+.scrollable {
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 40vh;
+}
