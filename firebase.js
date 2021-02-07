@@ -1,8 +1,3 @@
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script> 
-
 var firebaseConfig = {
 apiKey: "AIzaSyDz6sUGDRW4biz9XmA3n-pblmAr0m4pevA",
 authDomain: "mywebapp-c28e1.firebaseapp.com",
@@ -15,3 +10,4 @@ measurementId: "G-WRGSDBF73H"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+const db=firebase.database();
