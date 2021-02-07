@@ -138,7 +138,6 @@
   var submitId;
   function handleInput(e) {
     var key = e.target.getAttribute('data-key');
-    // console.log(key);
     if (key == 8)
     {
         inputString = inputString.slice(0, -1);
@@ -148,6 +147,10 @@
     {
         console.log(inputString);
         uploadComment();
+    }
+    else if (key == 32)
+    {
+      inputString = inputString+" ";
     }
     else
     {
