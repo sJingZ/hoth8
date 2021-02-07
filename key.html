@@ -28,7 +28,7 @@
 	<body>
 <div class="split left">
 	<div></div>
-  <div id="text" class="centered0">hello</div><div>hello</div><div>hello</div>
+  <div id="text" class="centered0"></div><div id= "comment">hello</div>
 	<div class="keyboard">
 	<div class="centered1">
     <div class="keyboardRow">
@@ -158,14 +158,45 @@
     }
     
   }
-
+    
   function uploadComment(){
     var newComment = db.ref("Comments/"+submitId).push();
     newComment.set({
       content: inputString
     })
     inputString = "";
+    //document.getElementById("comment").innerHTML = newComment;
+
+    
   }
+
+ const db=firebase.database();
+  let ref =db.ref('Comments');
+
+  ref.on('value',gotData,errData);
+  function gotData(data)
+  {
+    let photoID = data.val();
+    //console.log(photoID);
+    //console.log(Object.values(photoID));
+    let listOfObjects=Object.values(photoID);
+    for (let i=0; i<listOfObjects.length; i++)
+    {
+      let aobject=listOfObjects[i];
+      let l=Object.values(aobject);
+      for (let k=0;k<l.length;k++)
+      {
+          console.log(l[k].content);
+      }
+
+    }   
+      
+  }
+function errData(data)
+{
+  console.log('Error!');
+  console.log(err);
+}
 
 
   // handle click on keyboard
