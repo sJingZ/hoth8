@@ -1,6 +1,6 @@
 .keyboardRow
 {
-   display: grid;
+  display: grid;
   grid-template-columns: repeat(10, 37px);
   text-align:center;
 }
