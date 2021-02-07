@@ -3,13 +3,14 @@
 
   <head>
     <meta charset="UTF-8">  
-    <title>Submit</title>
+    <title>Pictures</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
 		<link rel="stylesheet" type="text/css" href="key.css">
   </head>
 	<body>
 <div class="split left">
 	<div></div>
+  <div id="text" class="centered0">hello</div>
 	<div class="keyboard">
 	<div class="centered1">
     <div class="keyboardRow">
@@ -69,14 +70,19 @@
 <audio data-key="73" src="sounds/squiggle.mp3"></audio>
 <audio data-key="79" src="sounds/prism-3.mp3"></audio>
 <audio data-key="80" src="sounds/ufo.mp3"></audio>
-<audio data-key="80" src="sounds/ufo.mp3"></audio>
-<audio data-key="80" src="sounds/ufo.mp3"></audio>
-<audio data-key="80" src="sounds/ufo.mp3"></audio>
+<audio data-key="65" src="sounds/glimmer.mp3"></audio>
+<audio data-key="83" src="sounds/veil.mp3"></audio>
+<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
+<audio data-key="68" src="sounds/zig-zag.mp3"></audio>
 
 
 <script>
   document.addEventListener('click', function(e) {
     console.log(e.target.innerText)
+    document.getElementById("text").innerHTML=document.getElementById("text").innerHTML+e.target.innerText;
   },false);
   
   function removeTransition(e) {
